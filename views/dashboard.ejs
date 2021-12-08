@@ -1,0 +1,32 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdQrJqakgBdStul1NfEE4Bl840Q1Ml0YXFyjXDHTX8M9K8xQA/viewform" class="btn btn-info btn-round">Complete Registration</a><p class="lead mb-3"></p>
+<a href="https://t.me/joinchat/xwHuPQ7-vYJmYjhk" class="btn btn-info btn-round">Submit Receipt Screenshot</a><p class="lead mb-3"></p>
+<h4 class="mt-4"> You can pay your N5,000.00 membership subscription using card or transfer. To pay using transfer, choose any of the following account details or proceed to pay using card with just a click</h4>
+<p class="lead mb-3">Account Name: Global People Thrift and Credit Cooperative Society Limited <br> Local Currency Accounts <br>Zenith Bank: 1212383987 <br>Fidelity Bank: 5600651987 <br>Unity Bank: 0051478465 <br>United Bank for Africa (UBA): 1023893529 <br>Domiciliary Accounts<br>United Bank for Africa (UBA) <br>USD: 3003309884 <br>EURO: 3003309891 <br>GBP: 3003309901 
+  
+  </p>
+
+<div id="paypal-button-container-P-6L740603GW350330MMF3H6GQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=ATvZ-W8hiNeRKtBN9u3sbxwxU1cVkojjMPPeCO5NqOlBNpYomipGU6Ga0KUTFTLGUM3wY5PM9e1W2Qu4&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-6L740603GW350330MMF3H6GQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-6L740603GW350330MMF3H6GQ'); // Renders the PayPal button
+</script>
+
+<div><a href="/users/logout" class="btn btn-secondary">Logout</a></div>
